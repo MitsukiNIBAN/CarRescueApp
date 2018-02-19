@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="order"
+            type="com.kuaijie.carrescue.entity.Order"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_item_wihte"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl_left_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.17" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl_right_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="1" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:opType="@{order.operationTypeId}"/>
+
+        <TextView
+            android:id="@+id/tv_order_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:lines="1"
+            android:text="@{order.operationType}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/gl_left_line" />
+
+        <TextView
+            android:id="@+id/tv_order_remarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:lines="1"
+            android:text="@{order.memo}"
+            android:textColor="@color/orderGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/gl_left_line"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_type" />
+
+        <TextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:lines="1"
+            android:textColor="@color/orderGray"
+            android:textSize="14sp"
+            app:orderStatus="@{order.orderState}"
+            app:layout_constraintStart_toStartOf="@id/gl_left_line"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_remarks" />
+
+        <TextView
+            android:id="@+id/tv_order_address_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:lines="1"
+            android:text="@string/aid_address"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/gl_left_line"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_status" />
+
+        <TextView
+            android:id="@+id/tv_order_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:text="@{order.gmtCreate}"
+            android:textSize="16sp"
+            android:maxEms="16"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_type"
+            app:layout_constraintEnd_toStartOf="@id/gl_right_line"
+            app:layout_constraintTop_toTopOf="@id/tv_order_type" />
+
+        <TextView
+            android:id="@+id/tv_order_client_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:text="@{order.clientName}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_remarks"
+            app:layout_constraintEnd_toStartOf="@id/gl_right_line"
+            app:layout_constraintTop_toTopOf="@id/tv_order_remarks" />
+
+        <TextView
+            android:id="@+id/tv_order_accept_deadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            app:countDown="@{order.disGmtCreate}"
+            app:state="@{order.orderState}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_status"
+            app:layout_constraintEnd_toStartOf="@id/gl_right_line"
+            app:layout_constraintTop_toTopOf="@id/tv_order_status" />
+
+        <TextView
+            android:id="@+id/tv_order_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{order.aidAddress}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:maxEms="10"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_address_hint"
+            app:layout_constraintEnd_toStartOf="@id/gl_right_line"
+            app:layout_constraintTop_toTopOf="@id/tv_order_address_hint" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

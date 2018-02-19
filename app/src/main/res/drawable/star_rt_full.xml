@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background"
+        android:drawable="@drawable/star_border_hide"
+        android:layout_height="wrap_content"/>
+    <item android:id="@android:id/secondaryProgress"
+        android:drawable="@drawable/star_border_show"
+        android:layout_height="wrap_content"/>
+    <!-- 选中状态 -->
+    <item android:id="@android:id/progress"
+        android:drawable="@drawable/star_border_show"
+        android:layout_height="wrap_content"/>
+
+
+</layer-list>

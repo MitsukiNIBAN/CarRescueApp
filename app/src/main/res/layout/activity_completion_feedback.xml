@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/viewBackGroundColor">
+
+        <include
+            android:id="@+id/include_title_bar"
+            layout="@layout/header_title_bar" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_feedback_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include_title_bar"
+            tools:layout_editor_absoluteY="56dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_order_trailer_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="拖车"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/wihte"
+            app:layout_constraintBottom_toTopOf="@id/ll_next_step"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_feedback_title">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/gl_left_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/gl_right_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/tv_km_num_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="到达里程(km)"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_km_num2_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="拖车里程(km)"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tv_road_roll_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="@string/road_roll"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_km_num_hint" />
+
+                <TextView
+                    android:id="@+id/tv_meals_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="@string/meals"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_road_roll_hint" />
+
+                <TextView
+                    android:id="@+id/tv_wheel_num_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="@string/wheel_num"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_meals_hint" />
+
+                <TextView
+                    android:id="@+id/tv_agency_cost_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="@string/commission"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_wheel_num_hint" />
+
+                <TextView
+                    android:id="@+id/tv_total_amount_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="@string/other_fee"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_agency_cost_hint" />
+
+                <TextView
+                    android:id="@+id/tv_remarks_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="@string/remarks"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_total_amount_hint" />
+
+                <EditText
+                    android:id="@+id/et_km_num"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/mileage"
+                    android:lines="1"
+                    android:maxLength="15"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_km_num_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_km_num2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/mileage"
+                    android:lines="1"
+                    android:maxLength="15"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_km_num_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_road_roll"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/amount"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:maxLength="15"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_road_roll_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_meals"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/amount"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:maxLength="15"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_meals_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_wheel_nu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/number"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:maxLength="15"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_wheel_num_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_agency_cost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/amount"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:maxLength="15"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_agency_cost_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_total_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="@string/amount"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:maxLength="15"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_total_amount_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <EditText
+                    android:id="@+id/et_other"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:hint="其他"
+                    android:lines="1"
+                    android:maxLength="15"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_remarks_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_right_line" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_km_num_hint" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_road_roll_hint" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_meals_hint" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_wheel_num_hint" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_agency_cost_hint" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_total_amount_hint" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/parting_line"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/viewBackGroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_remarks_hint" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/ll_next_step"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_next_step"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_login_btn"
+                android:minHeight="0dp"
+                android:onClick="click"
+                android:padding="7sp"
+                android:text="@string/submit_data"
+                android:textColor="@drawable/color_login_btn_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

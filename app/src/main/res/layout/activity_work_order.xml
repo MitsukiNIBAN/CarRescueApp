@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/viewBackGroundColor">
+
+        <include
+            android:id="@+id/include_title_bar"
+            layout="@layout/header_title_bar" />
+
+        <LinearLayout
+            android:id="@+id/ll_next_step"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_next_step"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_login_btn"
+                android:minHeight="0dp"
+                android:padding="7sp"
+                android:text="请确认工单信息"
+                android:textColor="@drawable/color_login_btn_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:fitsSystemWindows="true">
+
+    <com.kuaijie.carrescue.view.camerasurfaceview.CameraSurfaceView
+        android:id="@+id/sv_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <ImageButton
+        android:id="@+id/ib_take_photo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="30dp"
+        android:background="@drawable/ic_take_photo_btn" />
+
+    <ImageButton
+        android:id="@+id/ib_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right|top"
+        android:layout_margin="20dp"
+        android:background="@drawable/ic_close_btn" />
+
+    <ImageButton
+        android:id="@+id/ib_flash"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="left|top"
+        android:layout_margin="20dp"
+        android:background="@drawable/ic_flash_off" />
+
+</FrameLayout>

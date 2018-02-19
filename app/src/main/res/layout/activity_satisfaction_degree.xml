@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true">
+
+        <include
+            android:id="@+id/include_title_bar"
+            layout="@layout/header_title_bar" />
+
+        <TextView
+
+            android:id="@+id/tv_symbol_satisfaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/ic_symbol_satisfaction"
+            android:text="Satisfaction"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include_title_bar" />
+
+        <LinearLayout
+            android:id="@+id/ll_star_satisfaction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_symbol_satisfaction">
+
+            <TextView
+                android:id="@+id/tv_star_satisfaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="服务质量："
+                android:textColor="@color/orderGray"
+                android:textSize="20dp" />
+
+            <RatingBar
+                android:isIndicator="false"
+                android:id="@+id/rb_star_satisfaction"
+                style="@style/foodRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="1.0" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/parting_line"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/viewBackGroundColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_star_satisfaction" />
+
+        <EditText
+            android:id="@+id/et_star_satisfaction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_edit_satisfaction"
+            android:gravity="left"
+            android:hint="请填写一下您的满意度，您的意见很重要哦"
+            android:lines="8"
+            android:maxLines="8"
+            android:padding="10dp"
+            android:textColorHint="@color/orderGray"
+            app:layout_constraintBottom_toTopOf="@id/ll_next_step"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_star_satisfaction"
+            app:layout_constraintVertical_bias="0.069" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_next_step"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <Button
+                android:id="@+id/btn_next_step"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_login_btn"
+                android:minHeight="0dp"
+                android:onClick="click"
+                android:padding="7sp"
+                android:text="@string/start_signature"
+                android:textColor="@drawable/color_login_btn_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

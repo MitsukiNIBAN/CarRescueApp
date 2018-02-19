@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wihte">
+
+        <include
+            android:id="@+id/include_title_bar"
+            layout="@layout/header_title_bar" />
+
+        <LinearLayout
+            android:id="@+id/ll_next_step"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_not_ok"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_take_another_one_btn"
+                android:minHeight="0dp"
+                android:padding="7dp"
+                android:text="不合格"
+                android:textColor="@drawable/color_take_another_one_text"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_login_btn"
+                android:minHeight="0dp"
+                android:padding="7sp"
+                android:text="合格"
+                android:textColor="@drawable/color_login_btn_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/parting_line"
+            android:background="@color/viewBackGroundColor"
+            app:layout_constraintBottom_toTopOf="@id/ll_next_step"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:background="@drawable/bg_car_check"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include_title_bar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="提示：请严格检查车辆。"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ll_next_step"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

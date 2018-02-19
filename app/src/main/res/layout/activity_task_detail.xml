@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="taskDetailViewModel"
+            type="com.kuaijie.carrescue.viewmodel.activity.TaskDetailViewModel"/>
+        <variable
+            name="order"
+            type="com.kuaijie.carrescue.entity.Order"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/viewBackGroundColor">
+
+        <include
+            android:id="@+id/include_title_bar"
+            layout="@layout/header_title_bar" />
+
+        <LinearLayout
+            android:id="@+id/ll_contact_customer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btn_contac_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_login_btn"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="7sp"
+                android:text="下一步"
+                android:textColor="@drawable/color_login_btn_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/include_header"
+            layout="@layout/header_task"
+            bind:order="@{order}"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toTopOf="@id/ll_contact_customer"
+            app:layout_constraintTop_toBottomOf="@id/include_header">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/wihte">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/gl_right_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <ImageView
+                        android:id="@+id/iv_owner"
+                        android:layout_width="80dp"
+                        android:layout_height="65dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_owner"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_car_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:text="(拖车)"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_owner"
+                        app:layout_constraintStart_toEndOf="@id/iv_owner"
+                        app:layout_constraintTop_toTopOf="@id/iv_owner" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:lines="1"
+                        android:text="@{order.gmtCreate}"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_owner"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/iv_owner" />
+
+                    <View
+                        android:id="@+id/v_idparting_line_1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/parting_line"
+                        android:background="@color/viewBackGroundColor"
+                        app:layout_constraintTop_toBottomOf="@id/iv_owner" />
+
+                    <TextView
+                        android:id="@+id/tv_license_plate_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="17dp"
+                        android:text="@string/license_plate"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/v_idparting_line_1" />
+
+                    <TextView
+                        android:id="@+id/tv_selegated_person_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="17dp"
+                        android:text="@string/selegated_person"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_license_plate_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_car_type_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="17dp"
+                        android:text="@string/car_type"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_selegated_person_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_brand_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/brand"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_license_plate_hint"
+                        app:layout_constraintStart_toStartOf="@id/gl_right_line"
+                        app:layout_constraintTop_toTopOf="@id/tv_license_plate_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_dispatcher_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dispatcher"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_selegated_person_hint"
+                        app:layout_constraintStart_toStartOf="@id/gl_right_line"
+                        app:layout_constraintTop_toTopOf="@id/tv_selegated_person_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_license_plate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="@{order.frameNumber}"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_license_plate_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_license_plate_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_license_plate_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_selegated_person"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="@{order.name}"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_selegated_person_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_selegated_person_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_selegated_person_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_car_type_min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="@{order.description}"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_car_type_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_car_type_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_car_type_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_brand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="@{order.carNumber}"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_brand_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_brand_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_brand_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_dispatcher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_dispatcher_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_dispatcher_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_dispatcher_hint" />
+
+                    <View
+                        android:id="@+id/v_idparting_line_2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/parting_line"
+                        android:layout_marginTop="17dp"
+                        android:background="@color/viewBackGroundColor"
+                        app:layout_constraintTop_toBottomOf="@id/tv_car_type_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_customer_name_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="17dp"
+                        android:text="@string/customer_name"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/v_idparting_line_2" />
+
+                    <TextView
+                        android:id="@+id/tv_payment_method_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="17dp"
+                        android:text="@string/payment_method"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_customer_name_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_quote_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quote"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_payment_method_hint"
+                        app:layout_constraintStart_toStartOf="@id/gl_right_line"
+                        app:layout_constraintTop_toTopOf="@id/tv_payment_method_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_customer_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="@{order.clientName}"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_customer_name_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_customer_name_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_customer_name_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_payment_method"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="支付宝"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_payment_method_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_payment_method_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_payment_method_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_quote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="700元"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_quote_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_quote_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_quote_hint" />
+
+                    <View
+                        android:id="@+id/v_idparting_line_3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/parting_line"
+                        android:layout_marginTop="17dp"
+                        android:background="@color/viewBackGroundColor"
+                        app:layout_constraintTop_toBottomOf="@id/tv_quote_hint" />
+
+                    <TextView
+                        android:id="@+id/tv_remarks_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="17sp"
+                        android:text="@string/remarks"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/v_idparting_line_3" />
+
+                    <TextView
+                        android:id="@+id/tv_remarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:lines="1"
+                        android:text="@{order.memo}"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_remarks_hint"
+                        app:layout_constraintStart_toEndOf="@id/tv_remarks_hint"
+                        app:layout_constraintTop_toTopOf="@id/tv_remarks_hint" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </ScrollView>
+        </LinearLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

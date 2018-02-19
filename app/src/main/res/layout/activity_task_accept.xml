@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="taskAcceptViewModel"
+            type="com.kuaijie.carrescue.viewmodel.activity.TaskAcceptViewModel" />
+
+        <variable
+            name="order"
+            type="com.kuaijie.carrescue.entity.Order" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/viewBackGroundColor">
+
+        <include
+            android:id="@+id/include_title_bar"
+            layout="@layout/header_title_bar" />
+
+        <LinearLayout
+            android:id="@+id/ll_accept_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/wihte"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_accept_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_login_btn"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="7sp"
+                android:textColor="@drawable/color_login_btn_text"
+                android:textSize="18sp"
+                app:countDownBtn="@{taskAcceptViewModel.orderField.disGmtCreate}" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/include_header"
+            layout="@layout/header_task"
+            bind:order="@{order}" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/wihte"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/include_header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="65dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_car_type" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:lines="1"
+                    android:text="@{taskAcceptViewModel.orderField.operationType}" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/parting_line"
+                android:background="@color/viewBackGroundColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:text="备注"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{taskAcceptViewModel.orderField.memo}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

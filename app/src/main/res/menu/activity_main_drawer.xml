@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_index"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/index" />
+        <item
+            android:id="@+id/menu_my_order"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/my_order" />
+        <item
+            android:id="@+id/menu_rescue_assistance"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/rescue_assistance" />
+        <item
+            android:id="@+id/menu_shift_leave"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/shift_leave" />
+        <item
+            android:id="@+id/menu_separation_application"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/separation_application"/>
+        <item
+            android:id="@+id/menu_fee_registration"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/fee_registration" />
+        <item
+            android:id="@+id/menu_payroll_inquiries"
+            android:icon="@drawable/ic_menu_default"
+            android:title="@string/payroll_inquiries" />
+    </group>
+
+</menu>

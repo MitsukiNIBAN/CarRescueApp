@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kuaijie.carrescue">
+
+    <!--Accredit top-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEM" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--Accredit bottom-->
+
+    <application
+        android:name="com.kuaijie.carrescue.util.Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <!--SDK key top-->
+        <!--高德key-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="9b31aed7196bbe9bca9900f30868f129" />
+        <!--SDK key bottom-->
+
+        <!--Service top-->
+        <service
+            android:name=".util.socket.HeartBeatService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".util.socket.SocketService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <!--Service bottom-->
+
+        <!--Receiver top-->
+        <receiver android:name=".util.socket.HeartBeatReceive" />
+        <!--Receiver bottom-->
+
+        <!--Activity top-->
+        <activity
+            android:name=".ui.base.LoginActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" />
+
+        <!--高德导航组件-->
+        <activity
+            android:name="com.amap.api.navi.AmapRouteActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name=".ui.base.SplashActivity"
+            android:theme="@style/SplashStyle"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.base.ForgetPasswordActivity" />
+        <activity android:name=".ui.base.MainActivity" />
+        <activity android:name=".ui.base.TakePhotoActivity" />
+
+        <activity android:name=".ui.technician.TaskAcceptActivity" />
+        <activity android:name=".ui.technician.TaskDetailActivity" />
+        <activity android:name=".ui.technician.StartOffActivity" />
+        <activity android:name=".ui.technician.TaskExecutionActivity" />
+        <activity android:name=".ui.technician.SatisfactionDegreeActivity" />
+        <activity android:name=".ui.technician.CompletionFeedbackActivity" />
+        <activity android:name=".ui.technician.CompleteOrderActivity" />
+        <activity android:name=".ui.technician.OrderDetailActivity" />
+        <activity android:name=".ui.technician.RoadTollActivity" />
+        <activity android:name=".ui.technician.CarCheckActivity" />
+        <activity android:name=".ui.technician.WorkOrderActivity" />
+        <activity android:name=".ui.technician.SiteMapActivity" />
+        <activity android:name=".ui.technician.NavigationActivity" />
+
+        <!--Activity bottom-->
+    </application>
+
+</manifest>
