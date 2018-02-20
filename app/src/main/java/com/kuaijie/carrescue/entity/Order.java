@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 
 @Message
 public class Order {
-    //test remark
+    //
+    //another
     @Index(0)
     private Long id;
     @Index(1)
